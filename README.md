@@ -6,6 +6,6 @@ To convert XARATHI CLI to GUI
 
 ### Module Being Used
 
-tkinter 
-python 2.7.5
-MariaDB
+1. tkinter 
+2. python 2.7.5
+3. MariaDB
