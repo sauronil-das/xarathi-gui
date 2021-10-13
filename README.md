@@ -1,6 +1,6 @@
-#Creating A GUI for XARATHI-CLI
+# Creating A GUI for XARATHI-CLI
 
-##Purpose
+## Purpose
 
 To convert XARATHI CLI to GUI
 
