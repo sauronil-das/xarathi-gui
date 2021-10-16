@@ -1,5 +1,6 @@
 ## Overview of Key Components
 
+![Overview](https://user-images.githubusercontent.com/42113685/137575029-6f4e29bb-a613-4cb5-b161-c4cf05d8e0eb.png)
 
 
 ### Router
@@ -12,7 +13,6 @@ which can communicate with the Internet
 
 We can use any machine to communicate with the Server PC using terminal (CLI) as long as 
 permissions are given which can be set when installing the server.
-
 
 ### The Server
 
