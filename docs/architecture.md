@@ -20,7 +20,7 @@ Here we are using CentOS 7 and provided a static IP of
 
 `192.168.29.101` and port forwaring `X11` Port: `22` 
 
-We have installed KVM and two VM with CentOS 7 
+We have installed `KVM` and two VM with CentOS 7 
 
 `DB-VM` 		 	`INTERFACE-VM`
 
