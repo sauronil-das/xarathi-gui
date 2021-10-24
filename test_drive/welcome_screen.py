@@ -121,6 +121,14 @@ def list_mem_with_id():
 	mem_id=simpledialog.askstring("Input", "Enter MEMBER ID")
 	os.system(" ")	
 
+def list_rd_with_id():
+	mem_id=simpledialog.askstring("Input", "Enter MEMBER ID")
+	os.system(" ")	
+
+def list_loan_with_id():
+	mem_id=simpledialog.askstring("Input", "Enter MEMBER ID")
+	os.system(" ")	
+
 ############################################################################################################################
 
 # Button Creation
@@ -163,6 +171,8 @@ list_all_loans_btn=Button(root, text="Print All Loans", command=list_all_loans)
 list_all_members_btn=Button(root, text="Print All Members", command=list_all_members)
 list_all_super_btn=Button(root, text="Print All Members", command=list_all_super)
 list_mem_with_id_btn=Button(root, text="Print Member with Specific ID", command=list_mem_with_id)
+list_rd_with_id_btn=Button(root, text="Print Reccuring with Specific Member ID", command=list_rd_with_id)
+list_loan_with_id_btn=Button(root, text="Print LOANS with Specific Member ID", command=list_loan_with_id)
 #############################################################################################################################
 
 # Button Locations
@@ -196,6 +206,12 @@ list_all_loans_btn.grid(row=12, column=1)
 list_all_members_btn.grid(row=13, column=0)
 list_all_super_btn.grid(row=13, column=1)
 list_mem_with_id_btn.grid(row=14, column=0)
+list_rd_with_id_btn.grid(row=14, column=1)
+list_loan_with_id_btn.grid(row=15, column=0)
+
+
+
+
 root.mainloop()
 
 
