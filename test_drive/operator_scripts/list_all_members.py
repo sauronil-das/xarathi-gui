@@ -1,4 +1,8 @@
+#!/usr/bin/python
+from prettytable import PrettyTable
 import sqlalchemy as db
+
+
 config = {
      'host' : '192.168.122.111',
      'port' : 3306,
@@ -17,10 +21,18 @@ def connect():
     engine = db.create_engine(connection_str)
     connection = engine.connect()
     return connection
-sql_handle = connect()
+sql_handle=connect()
 
 
-def list_members(sql_handle):
-
-	sql_string = "select * from MEMBERS"
+def list_member(sql_handle):
+	sql_string = "select MEMBER_ID, FIRST_NAME, LAST_NAME, BIRTH_DATE, MEMBERSHIP_DATE, PERMANENT_ADDRESS from MEMBERS"
 	rs=sql_handle.execute(sql_string)
+	x=PrettyTable()
+	x.field_names = ["MEMBER_ID", "FIRST_NAME", "LAST_NAME", "BIRTH_DATE", "MEMBERSHIP_DATE", "PERMANENT_ADDRESS"]
+	for row in rs:
+		x.add_row([row[0], row[1], row[2], row[3], row[4], row[5]])
+	
+	print (x)
+
+
+list_member(sql_handle)
