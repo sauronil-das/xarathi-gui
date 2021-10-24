@@ -6,7 +6,8 @@ from Tkinter import *
 
 class Application(Frame):
     def say_hi(self):
-        os.system("./just_folder/test.py") #Absolue path for files will be needed
+	var = ".py"
+        os.system("./test" + var) #Absolue path for files will be needed
 
     def createWidgets(self):
         self.CREATE = Button(self)
