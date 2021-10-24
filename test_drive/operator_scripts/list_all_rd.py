@@ -25,12 +25,12 @@ sql_handle=connect()
 
 
 def list_rd(sql_handle):
-	sql_string = "select MEMBER_ID, FIRST_NAME, LAST_NAME, BIRTH_DATE, MEMBERSHIP_DATE, PERMANENT_ADDRESS from MEMBERS"
+	sql_string = "select RECCURING_DEPOSITS.MEMBER_ID, FIRST_NAME, LAST_NAME, BALANCE, RD_ID, RD_NAME, INITIATION_DATE FROM RECCURING_DEPOSITS LEFT JOIN MEMBERS ON RECCURING_DEPOSITS.MEMBER_ID = MEMBERS.MEMBER_ID ORDER BY RECCURING_DEPOSITS.MEMBER_ID ASC"
 	rs=sql_handle.execute(sql_string)
 	x=PrettyTable()
-	x.field_names = ["MEMBER_ID", "FIRST_NAME", "LAST_NAME", "BIRTH_DATE", "MEMBERSHIP_DATE", "PERMANENT_ADDRESS"]
+	x.field_names = ["MEMBER_ID", "FIRST_NAME", "LAST_NAME", "BALANCE", "RD_ID", "RD_NAME", "INITIATION_DATE"]
 	for row in rs:
-		x.add_row([row[0], row[1], row[2], row[3], row[4], row[5]])
+		x.add_row([row[0], row[1], row[2], row[3], row[4], row[5], row[6]])
 	
 	print (x)
 
