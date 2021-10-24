@@ -92,6 +92,25 @@ def loan_push():
 	tkMessageBox.showinfo("OPERATOR", "LOAN Has Been Pushed Into Database")
 	os.system("")
 
+
+def list_all_rd():
+	tkMessageBox.showinfo("OPERATOR", "RD Data has been Copied to Directory. Please Check")
+	os.system("")
+
+def list_all_loans():
+	tkMessageBox.showinfo("OPERATOR", "LOAN Data has been Copied to Directory. Please Check")
+	os.system("")
+
+def list_all_members():
+	tkMessageBox.showinfo("OPERATOR", "Members Data has been Copied to Directory. Please Check")
+	os.system("")
+
+def list_all_super():
+	tkMessageBox.showinfo("OPERATOR", "Supervisor Data has been Copied to Directory. Please Check")
+	os.system("")
+	
+	
+
 ############################################################################################################################
 
 # Button Creation
@@ -108,6 +127,7 @@ reset_btn = Button(root, text="CLEAR CACHE", command = reset_after_boot)
 push_daily_rd_btn=Button(root, text="Push Daily RD Collection To Database", command=push_rd)
 fetch_rd_btn=Button(root, text="Fetch Daily RD for Collection", command=fetch_rd)
 push_loan_btn=Button(root, text="Push LOAN Collection to Database", command=push_loan)
+
 fetch_loan_btn=Button(root, text="Fetch LOAN for Collection ", command=fetch_loan)
 recon_rd_btn=Button(root, text="Reconcile RD - 4th of Every Month", command=reconcile_rd)
 recon_loan_btn=Button(root, text="Reconcile LOAN - 4th of Every Month", command=reconcile_loan)
@@ -124,6 +144,14 @@ agent_push_btn=Button(root, text="Push Agent Info To Database", command=agent_pu
 member_push_btn=Button(root, text="Push Member Info To Database", command=member_push)
 rd_push_btn=Button(root, text="Push RD Info To Database", command=rd_push)
 loan_push_btn=Button(root, text="Push LOAN Info To Database", command=loan_push)
+
+
+# Operator List Buttons (Display and Output)
+
+list_all_rd_btn=Button(root, text="Print All Reccuring Desposits", command=list_all_rd)
+list_all_loans_btn=Button(root, text="Print All Loans", command=list_all_loans)
+list_all_members_btn=Button(root, text="Print All Members", command=list_all_members)
+list_all_super_btn=Button(root, text="Print All Members", command=list_all_super)
 #############################################################################################################################
 
 # Button Locations
@@ -152,9 +180,10 @@ rd_push_btn.grid(row=9, column=1)
 loan_push_btn.grid(row=10, column=0)
 
 
-
-
-
+list_all_rd_btn.grid(row=12, column=0)
+list_all_loans_btn.grid(row=12, column=1)
+list_all_members_btn.grid(row=13, column=0)
+list_all_super_btn.grid(row=13, column=1)
 root.mainloop()
 
 
