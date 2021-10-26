@@ -11,3 +11,9 @@ To convert XARATHI CLI to GUI
 3. `MariaDB`
 4. `BASH` scripts for scp and cleaning files from specific directories
 5. `Virtual Machine Manager` to Host MariaDB with specific IP address
+
+
+## Virtual Machine Manager
+
+1. `.qcow2`images can be imported from existing VM and run on BASE Machine
+2. Copying `.qcow2` images can be usefull to create backups
