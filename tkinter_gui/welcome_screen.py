@@ -5,7 +5,7 @@ import tkSimpleDialog as simpledialog
 import tkMessageBox
 import os
 
-###########################################################################################################################
+##########################################################################################
 
 # Button Definations
 
@@ -14,94 +14,96 @@ root = Tk()
 root.title("Turin Bank Management Software                  Developed by Sauronil Das")
 root.geometry("1000x600")
 
-#############################################################################################################################
-
+###########################################################################################
 # Entry Definnations
 
 
 
 def reset_after_boot():
 	tkMessageBox.showinfo("OPERATOR", "Cache Files Removed From System")
-	os.system("") 
+	os.system("rm -r /home/BALAJI/output/rd/*") 
+	os.system("rm -r /home/BALAJI/output/loans/*") 
+	os.system("rm -r /home/BALAJI/input/rd/*") 
+	os.system("rm -r /home/BALAJI/input/loans/*") 
+
 
 def push_rd():
 	tkMessageBox.showinfo("OPERATOR", "Data has been pushed to Database")
-	os.system("")
+	os.system("/home/cronjobs/push_daily_rd_collection_to_db.py")
 
 def fetch_rd():
 	tkMessageBox.showinfo("OPERATOR", "Data has been stored to BALAJI Directory as PCTX.TXT. Please Copy File to Windows Machine")
-	os.system("")
+	os.system("/home/cronjobs/fetch_rd_for_collection.py")
 
 def push_loan():
 	tkMessageBox.showinfo("OPERATOR", "Data Has been pushed to Database")
-	os.system("")
+	os.system("/home/cronjobs/push_daily_loan_collection_to_db.py")
 
 def fetch_loan():
 	tkMessageBox.showinfo("OPERATOR", "Data has been stored to BALAJI Directory as PCTX.TXT. Please Copy File to Windows Machine")
-	os.system("")
+	os.system("/home/cronjobs/fetch_loans_for_collection.py")
 
 def reconcile_rd():
 	tkMessageBox.showinfo("OPERATOR", "Reconciliation of RD Complete")
-	os.system("")
+	os.system("/home/cronjobs/reconcile_rd_payments.py")
 
 def reconcile_loan():
 	tkMessageBox.showinfo("OPERATOR", "Reconciliation of LOAN Complete")
-	os.system("")
+	os.system("/home/cronjobs/reconcile_loan_payments.py")
 
 def clear_recon_cache():
 	tkMessageBox.showinfo("OPERATOR", "CACHE CLEARED from Database")
-	os.system("")
+	os.system("/home/cronjobs/delete_month_payment_after_reconcile.py")
 
 # CSV Function Definations
 
 def super_push():
 	tkMessageBox.showinfo("OPERATOR", "Supervisor Has Been Pushed Into Database")
-	os.system("")
+	os.system("/home/sauronil/pusher_scripts/supervisor_pusher.py")
 
 def agent_push():
 	tkMessageBox.showinfo("OPERATOR", "Agent Has Been Pushed Into Database")
-	os.system("")
+	os.system("/home/sauronil/pusher_scripts/agent_pusher.py")
 	
 def member_push():
 	tkMessageBox.showinfo("OPERATOR", "Member Has Been Pushed Into Database")
-	os.system("")
+	os.system("/home/sauronil/pusher_scripts/members_pusher.py")
 
 def rd_push():
 	tkMessageBox.showinfo("OPERATOR", "RD Has Been Pushed Into Database")
-	os.system("")
+	os.system("/home/sauronil/pusher_scripts/rd_pusher.py")
 def loan_push():
 	tkMessageBox.showinfo("OPERATOR", "LOAN Has Been Pushed Into Database")
-	os.system("")
+	os.system("/home/sauronil/pusher_scripts/loan_pusher.py")
 
 
 def list_all_rd():
 	tkMessageBox.showinfo("OPERATOR", "RD Data has been Copied to Directory. Please Check")
-	os.system("")
+	os.system("/home/sauronil/operator_scripts/list_all_rd.py > /home/sauronil/Desktop/operation_files/all_rd.txt")
 
 def list_all_loans():
 	tkMessageBox.showinfo("OPERATOR", "LOAN Data has been Copied to Directory. Please Check")
-	os.system("")
+	os.system("/home/sauronil/operator_scripts/list_all_loans.py > /home/sauronil/Desktop/operation_files/all_loans.txt")
 
 def list_all_members():
 	tkMessageBox.showinfo("OPERATOR", "Members Data has been Copied to Directory. Please Check")
-	os.system("")
+	os.system("/home/sauronil/operator_scripts/list_all_members.py > /home/sauronil/Desktop/operation_files/all_members.txt")
 
 def list_all_super():
 	tkMessageBox.showinfo("OPERATOR", "Supervisor Data has been Copied to Directory. Please Check")
-	os.system("")
+	os.system("/home/sauronil/operator_scripts/list_super.py > /home/sauronil/Desktop/operation_files/all_supervisors.txt")
 
 def list_mem_with_id():
 	mem_id=simpledialog.askstring("Input", "Enter MEMBER ID")
-	os.system(" ")	
+	os.system("/home/sauronil/operator_scripts/list_member_with_id.py " + str(mem_id) + " > /home/sauronil/Desktop/operation_files/member.txt")	
 
 def list_rd_with_id():
 	mem_id=simpledialog.askstring("Input", "Enter MEMBER ID")
-	os.system(" ")	
+	os.system("/home/sauronil/operator_scripts/list_rd_with_id.py " + str(mem_id) + " > /home/sauronil/Desktop/operation_files/rd.txt")	
 
 def list_loan_with_id():
 	mem_id=simpledialog.askstring("Input", "Enter MEMBER ID")
-	os.system(" ")	
-
+	os.system("/home/sauronil/operator_scripts/list_loan_with_id.py " + str(mem_id) + " > /home/sauronil/Desktop/operation_files/loan.txt")	
 ############################################################################################################################
 
 # Button Creation
@@ -142,7 +144,7 @@ loan_push_btn=Button(root, text="Push LOAN Info To Database", command=loan_push)
 list_all_rd_btn=Button(root, text="Print All Reccuring Desposits", command=list_all_rd)
 list_all_loans_btn=Button(root, text="Print All Loans", command=list_all_loans)
 list_all_members_btn=Button(root, text="Print All Members", command=list_all_members)
-list_all_super_btn=Button(root, text="Print All Members", command=list_all_super)
+list_all_super_btn=Button(root, text="Print All Supervisors", command=list_all_super)
 list_mem_with_id_btn=Button(root, text="Print Member with Specific ID", command=list_mem_with_id)
 list_rd_with_id_btn=Button(root, text="Print Reccuring with Specific Member ID", command=list_rd_with_id)
 list_loan_with_id_btn=Button(root, text="Print LOANS with Specific Member ID", command=list_loan_with_id)
