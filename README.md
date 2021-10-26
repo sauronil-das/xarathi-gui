@@ -16,4 +16,4 @@ To convert XARATHI CLI to GUI
 ## Virtual Machine Manager
 
 1. `.qcow2`images can be imported from existing VM and run on BASE Machine
-2. Copying `.qcow2` images can be usefull to create backups
+2. Copying `.qcow2` images can be useful to create backups
