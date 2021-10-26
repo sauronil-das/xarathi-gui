@@ -32,7 +32,13 @@ def list_rd(sql_handle):
 	for row in rs:
 		x.add_row([row[0], row[1], row[2], row[3], row[4], row[5], row[6]])
 	
+	sql_string="select sum(BALANCE) from RECCURING_DEPOSITS"
+	rs=sql_handle.execute(sql_string)
 	print (x)
-
+	print rs
+	
 
 list_rd(sql_handle)
+
+
+
