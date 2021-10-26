@@ -5,34 +5,6 @@ import tkSimpleDialog as simpledialog
 import tkMessageBox
 import os
 
-'''
-import sqlalchemy as db
-
-
-########################################################################################################################
-
-config = {
-         'host': '192.168.122.111',
-         'port': 3306,
-         'user': 'xaraticli',
-         'password': 'SmellyCatSmellyCat',
-         'database': 'NIDHI_BANK'
-                            }
-def connect():
-    db_user = config.get('user')
-    db_pwd = config.get('password')
-    db_host = config.get('host')
-    db_port = config.get('port')
-    db_name = config.get('database')
-    connection_str = "mysql+pymysql://" + db_user + ":" + db_pwd + "@" + db_host + ":" + str(db_port) + "/" + db_name
-
-    engine = db.create_engine(connection_str)
-
-    connection = engine.connect()
-    return connection
-
-sql_handle=connect()
-'''
 ###########################################################################################################################
 
 # Button Definations
@@ -40,6 +12,7 @@ sql_handle=connect()
 
 root = Tk()
 root.title("Turin Bank Management Software                  Developed by Sauronil Das")
+root.geometry("1000x600")
 
 #############################################################################################################################
 
@@ -133,10 +106,10 @@ def list_loan_with_id():
 
 # Button Creation
 
-home_lbl = Label(root, text = "OPERATOR - WELCOME TO XARATHI BANK")
-csv_push_lbl = Label(root, text = "Push CSV Data Into Database")
-reset_btn = Button(root, text="CLEAR CACHE", command = reset_after_boot)
-
+home_lbl = Label(root, text = "OPERATOR - WELCOME TO XARATHI BANK", fg='blue', font=("Helvetica", 24, 'bold'))
+csv_push_lbl = Label(root, text = "||Push CSV Data Into Database||", fg='blue', font=("Courier", 18))
+reset_btn = Button(root, text="CLEAR CACHE", fg='red', command = reset_after_boot)
+list_lbl = Label(root, text="||All Listing Commands||", fg='blue', font=("Courier", 18))
 
 #############################################################################################################################
 
@@ -151,7 +124,7 @@ recon_rd_btn=Button(root, text="Reconcile RD - 4th of Every Month", command=reco
 recon_loan_btn=Button(root, text="Reconcile LOAN - 4th of Every Month", command=reconcile_loan)
 recon_fix_btn=Button(root, text="Reconcile FIXED DEPOSIT - 4th of Every Month", state= DISABLED)
 setup_daily_loan_btn=Button(root, text="Setup Daily Collection for LOAN", state=DISABLED)
-clear_recon_cache_btn=Button(root, text="Clear Cache after RECONCILE of RD AND LOAN", command=clear_recon_cache)
+clear_recon_cache_btn=Button(root, text="Clear Cache after RECONCILE of RD AND LOAN", fg='red', command=clear_recon_cache)
 
 #del_btn = Button(root, text="Click after Reboot", state = DISABLED)
 
@@ -178,36 +151,37 @@ list_loan_with_id_btn=Button(root, text="Print LOANS with Specific Member ID", c
 # Button Locations
 
 home_lbl.grid(row = 0, column = 0)
-reset_btn.grid(row=1, column=0)
+reset_btn.grid(row=1, column=0, sticky=W)
 
 
-push_daily_rd_btn.grid(row=2, column=0)
-fetch_rd_btn.grid(row=2, column=1)
-push_loan_btn.grid(row=3, column=0)
-fetch_loan_btn.grid(row=3, column=1)
-recon_rd_btn.grid(row=4, column=0)
-recon_loan_btn.grid(row=4, column=1)
+push_daily_rd_btn.grid(row=2, column=0, sticky=W)
+fetch_rd_btn.grid(row=2, column=1, sticky=E)
+push_loan_btn.grid(row=3, column=0, sticky=W)
+fetch_loan_btn.grid(row=3, column=1, sticky=E)
+recon_rd_btn.grid(row=4, column=0, sticky=W)
+recon_loan_btn.grid(row=4, column=1, sticky=E)
 
-recon_fix_btn.grid(row=5, column=0)
-setup_daily_loan_btn.grid(row=5, column=1)
-clear_recon_cache_btn.grid(row=6, column=0)
+recon_fix_btn.grid(row=5, column=0, sticky=W)
+setup_daily_loan_btn.grid(row=5, column=1, sticky=E)
+clear_recon_cache_btn.grid(row=6, column=0, sticky=W)
 
-csv_push_lbl.grid(row=7, column=0)
-super_push_btn.grid(row=8, column=0)
-agent_push_btn.grid(row=8, column=1)
+csv_push_lbl.grid(row=7, column=0, sticky=W)
 
-member_push_btn.grid(row=9, column=0)
-rd_push_btn.grid(row=9, column=1)
-loan_push_btn.grid(row=10, column=0)
+super_push_btn.grid(row=8, column=0, sticky=W)
+agent_push_btn.grid(row=8, column=1, sticky=E)
+member_push_btn.grid(row=9, column=0, sticky=W)
+rd_push_btn.grid(row=9, column=1, sticky=E)
+loan_push_btn.grid(row=10, column=0, sticky=W)
 
+list_lbl.grid(row=11, column=0, sticky=W)
 
-list_all_rd_btn.grid(row=12, column=0)
-list_all_loans_btn.grid(row=12, column=1)
-list_all_members_btn.grid(row=13, column=0)
-list_all_super_btn.grid(row=13, column=1)
-list_mem_with_id_btn.grid(row=14, column=0)
-list_rd_with_id_btn.grid(row=14, column=1)
-list_loan_with_id_btn.grid(row=15, column=0)
+list_all_rd_btn.grid(row=12, column=0, sticky=W)
+list_all_loans_btn.grid(row=12, column=1, sticky=E)
+list_all_members_btn.grid(row=13, column=0, sticky=W)
+list_all_super_btn.grid(row=13, column=1, sticky=E)
+list_mem_with_id_btn.grid(row=14, column=0, sticky=W)
+list_rd_with_id_btn.grid(row=14, column=1, sticky=E)
+list_loan_with_id_btn.grid(row=15, column=0, sticky=W)
 
 
 
