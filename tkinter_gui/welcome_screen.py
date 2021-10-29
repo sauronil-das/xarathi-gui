@@ -30,6 +30,8 @@ def reset_after_boot():
 def push_rd():
 	tkMessageBox.showinfo("OPERATOR", "Data has been pushed to Database")
 	os.system("/home/cronjobs/push_daily_rd_collection_to_db.py")
+	os.system("") # Attach mv .txt to some other dir
+
 
 def fetch_rd():
 	tkMessageBox.showinfo("OPERATOR", "Data has been stored to BALAJI Directory as PCTX.TXT. Please Copy File to Windows Machine")
@@ -38,6 +40,7 @@ def fetch_rd():
 def push_loan():
 	tkMessageBox.showinfo("OPERATOR", "Data Has been pushed to Database")
 	os.system("/home/cronjobs/push_daily_loan_collection_to_db.py")
+	os.system("") # Attach mv .txt to some other dir
 
 def fetch_loan():
 	tkMessageBox.showinfo("OPERATOR", "Data has been stored to BALAJI Directory as PCTX.TXT. Please Copy File to Windows Machine")
@@ -60,22 +63,27 @@ def clear_recon_cache():
 def super_push():
 	tkMessageBox.showinfo("OPERATOR", "Supervisor Has Been Pushed Into Database")
 	os.system("/home/sauronil/pusher_scripts/supervisor_pusher.py")
+	os.system("") # Attach mv .txt to some other dir
 
 def agent_push():
 	tkMessageBox.showinfo("OPERATOR", "Agent Has Been Pushed Into Database")
 	os.system("/home/sauronil/pusher_scripts/agent_pusher.py")
+	os.system("") # Attach mv .txt to some other dir
 	
 def member_push():
 	tkMessageBox.showinfo("OPERATOR", "Member Has Been Pushed Into Database")
 	os.system("/home/sauronil/pusher_scripts/members_pusher.py")
+	os.system("") # Attach mv .txt to some other dir
 
 def rd_push():
 	tkMessageBox.showinfo("OPERATOR", "RD Has Been Pushed Into Database")
 	os.system("/home/sauronil/pusher_scripts/rd_pusher.py")
+	os.system("") # Attach mv .txt to some other dir
+
 def loan_push():
 	tkMessageBox.showinfo("OPERATOR", "LOAN Has Been Pushed Into Database")
 	os.system("/home/sauronil/pusher_scripts/loan_pusher.py")
-
+	os.system("") # Attach mv .txt to some other dir
 
 def list_all_rd():
 	tkMessageBox.showinfo("OPERATOR", "RD Data has been Copied to Directory. Please Check")
@@ -104,6 +112,11 @@ def list_rd_with_id():
 def list_loan_with_id():
 	mem_id=simpledialog.askstring("Input", "Enter MEMBER ID")
 	os.system("/home/sauronil/operator_scripts/list_loan_with_id.py " + str(mem_id) + " > /home/sauronil/Desktop/operation_files/loan.txt")	
+
+def list_daily_rd():
+	tkMessageBox.showinfo("OPERATOR", "Daily Reccuring Deposit Data has been copied to operation_files Directory")
+	os.system("")
+	
 ############################################################################################################################
 
 # Button Creation
@@ -146,8 +159,9 @@ list_all_loans_btn=Button(root, text="Print All Loans", command=list_all_loans)
 list_all_members_btn=Button(root, text="Print All Members", command=list_all_members)
 list_all_super_btn=Button(root, text="Print All Supervisors", command=list_all_super)
 list_mem_with_id_btn=Button(root, text="Print Member with Specific ID", command=list_mem_with_id)
-list_rd_with_id_btn=Button(root, text="Print Reccuring with Specific Member ID", command=list_rd_with_id)
+list_rd_with_id_btn=Button(root, text="Print Reccuring Deposit with Specific Member ID", command=list_rd_with_id)
 list_loan_with_id_btn=Button(root, text="Print LOANS with Specific Member ID", command=list_loan_with_id)
+list_daily_rd_btn=Button(root, text="Print Daily Reccuring Deposit Report", command=list_daily_rd)
 #############################################################################################################################
 
 # Button Locations
@@ -184,6 +198,7 @@ list_all_super_btn.grid(row=13, column=1, sticky=E)
 list_mem_with_id_btn.grid(row=14, column=0, sticky=W)
 list_rd_with_id_btn.grid(row=14, column=1, sticky=E)
 list_loan_with_id_btn.grid(row=15, column=0, sticky=W)
+list_daily_rd_btn.grid(row=15, column=1, sticky=E)
 
 
 
