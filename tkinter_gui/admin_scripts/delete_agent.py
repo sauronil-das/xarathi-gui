@@ -3,7 +3,7 @@
 import sqlalchemy as db
 import sys
 
-mem_id=sys.argv[1]
+agent_id=sys.argv[1]
 
 config = {
      'host' : '192.168.122.111',
@@ -26,9 +26,9 @@ def connect():
 sql_handle=connect()
 
 
-def delete_mem(sql_handle):
-	sql_string="delete from MEMBERS where MEMBER_ID = " + str(mem_id)
+def delete_agent(sql_handle):
+	sql_string="delete from AGENTS where AGENT_ID = " + str(agent_id)
 	rs=sql_handle.execute(sql_string)
 
 
-delete_mem(sql_handle)
+delete_agent(sql_handle)
