@@ -162,6 +162,7 @@ list_mem_with_id_btn=Button(root, text="Print Member with Specific ID", command=
 list_rd_with_id_btn=Button(root, text="Print Reccuring Deposit with Specific Member ID", command=list_rd_with_id)
 list_loan_with_id_btn=Button(root, text="Print LOANS with Specific Member ID", command=list_loan_with_id)
 list_daily_rd_btn=Button(root, text="Print Daily Reccuring Deposit Report", command=list_daily_rd)
+exit_btn=Button(root, text="Exit", command=root.destroy)
 #############################################################################################################################
 
 # Button Locations
@@ -199,7 +200,7 @@ list_mem_with_id_btn.grid(row=14, column=0, sticky=W)
 list_rd_with_id_btn.grid(row=14, column=1, sticky=E)
 list_loan_with_id_btn.grid(row=15, column=0, sticky=W)
 list_daily_rd_btn.grid(row=15, column=1, sticky=E)
-
+exit_btn.grid(row=16, column=0, sticky=W)
 
 
 
