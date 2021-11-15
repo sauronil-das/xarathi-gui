@@ -25,7 +25,7 @@ def connect():
     connection = engine.connect()
     return connection
 
-# sql_handle=connect()
+sql_handle=connect()
 
 
 def update_loan(sql_handle):

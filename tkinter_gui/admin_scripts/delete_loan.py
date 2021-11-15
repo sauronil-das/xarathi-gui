@@ -27,7 +27,7 @@ sql_handle=connect()
 
 
 def delete_loan(sql_handle):
-	sql_string="delete from LOANS where LOAN_ID = " + str(laon_id)
+	sql_string="update LOANS set LOAN_STATUS = \"Closed\" where LOAN_ID = " + str(loan_id)
 	rs=sql_handle.execute(sql_string)
 
 
