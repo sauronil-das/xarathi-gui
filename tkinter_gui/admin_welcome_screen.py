@@ -15,36 +15,38 @@ root.geometry("900x600")
 
 def delete_agent():
 	agent_id=simpledialog.askstring("Input", "Enter AGENT ID")
-	print agent_id
-	os.system("")
+	string="/home/sauronil/Downloads/xarathi-gui/tkinter_gui/admin_scripts/delete_agent.py " + str(agent_id) + " "
+	os.system(string)
 
 def delete_loan():
 	loan_id=simpledialog.askstring("Input", "Enter LOAN ID")
-	print loan_id
-	os.system("")
+	string="/home/sauronil/Downloads/xarathi-gui/tkinter_gui/admin_scripts/delete_loan.py " + str(loan_id) + " "
+	os.system(string)
 
 
 def delete_member():
 	mem_id=simpledialog.askstring("Input", "Enter MEMBER ID")
-	print mem_id
-	os.system("")
+	string="/home/sauronil/Downloads/xarathi-gui/tkinter_gui/admin_scripts/delete_member.py " + str(mem_id) + " "
+	os.system(string)
 
 
 def delete_rd():
 	rd_id=simpledialog.askstring("Input", "Enter RD ID")
-	print rd_id
-	os.system("")
+	string="/home/sauronil/Downloads/xarathi-gui/tkinter_gui/admin_scripts/delete_rd.py " + str(rd_id) + " "
+	os.system(string)
 
 def set_penalty():
 	penalty=simpledialog.askstring("Input", "Enter Penalty Amount")
 	loan_id=simpledialog.askstring("Input", "Enter LOAN ID")
-	os.system("")
+	string="/home/sauronil/Downloads/xarathi-gui/tkinter_gui/admin_scripts/set_penalty_on_loan.py " + str(penalty) + " " + str(loan_id)
+	
+	os.system(string)
 
 def update_rd_balance():
 	balance=simpledialog.askstring("Input", "Enter Balance Amount")
 	rd_id=simpledialog.askstring("Input", "Enter RD ID")
-	print balance
-	print rd_id
+	string="/home/sauronil/Downloads/xarathi-gui/tkinter_gui/admin_scripts/update_balance_rd.py " + str(balance) + " " + str(rd_id) + " "
+	os.system(string)
 # Button Creation
 
 home_lbl = Label(root, text = "ADMIN - WELCOME TO XARATHI BANK")
@@ -53,7 +55,7 @@ warning_lbl = Label(root, text="|| CAREFULL WHEN USING ||", fg='red', font=("Cou
 
 
 delete_agent_btn=Button(root, text="Delete AGENT", command=delete_agent)
-delete_loan_btn=Button(root, text="Delete LOAN", command=delete_loan)
+delete_loan_btn=Button(root, text="Close LOAN", command=delete_loan)
 delete_member_btn=Button(root, text="Delete MEMBER", command=delete_member)
 delete_rd_btn=Button(root, text="Delete RECCURING DEPOSIT", command=delete_rd)
 set_penalty_on_loan_btn=Button(root, text="Set PENALTY on LOAN", command=set_penalty)
